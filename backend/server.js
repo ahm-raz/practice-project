@@ -2,13 +2,14 @@ import express from "express";
 
 const app = express();
 const port = 3000;
-app.get("/", (req,res)=>{
-    res.send("Hello World");
-});
 
-app.get('/users',(req,res)=>{
-    res.send("Hello Users");
-})
+
+import authRoutes from './routes/auth.route.js';
+import docsRoutes from './routes/docs.route.js';
+
+app.get('/home',authRoutes)
+app.get('/docs',docsRoutes)
+
 
 
 app.listen(port, ()=>{
