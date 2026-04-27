@@ -7,6 +7,10 @@ router.get('/',(req,res)=>{
     res.send("Hello My router");
 })
 
+router.get('/about',(req,res)=>{
+    res.send("Some changes are made from my side, here you can check now, all ok now.");
+})
+
 export default router;
 
 
