@@ -1,14 +1,20 @@
+import dotenv from "dotenv";
 import express from "express";
+import authRoutes from './routes/auth.route.js';
+import connectDB from "./config/db.js";
+
+dotenv.config();
 
 const app = express();
+connectDB();
+
+app.use(express.json());
 const port = 3000;
 
 
-import authRoutes from './routes/auth.route.js';
-import docsRoutes from './routes/docs.route.js';
 
-app.get('/home',authRoutes)
-app.get('/docs',docsRoutes)
+
+app.use('/auth',authRoutes);
 
 
 
